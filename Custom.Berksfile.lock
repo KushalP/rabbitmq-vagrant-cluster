@@ -1,0 +1,27 @@
+DEPENDENCIES
+  apt
+  build-essential
+  erlang
+  hosts_file
+  rabbitmq (= 4.6.0)
+
+GRAPH
+  apt (2.9.2)
+  build-essential (2.2.4)
+  erlang (1.5.8)
+    apt (>= 1.7.0)
+    build-essential (>= 0.0.0)
+    yum (~> 3.0)
+    yum-epel (>= 0.0.0)
+    yum-erlang_solutions (>= 0.0.0)
+  hosts_file (0.2.0)
+  rabbitmq (4.6.0)
+    erlang (~> 1.5.0)
+    yum-epel (>= 0.0.0)
+    yum-erlang_solutions (>= 0.0.0)
+  yum (3.9.0)
+  yum-epel (0.6.5)
+    yum (~> 3.2)
+  yum-erlang_solutions (0.3.1)
+    yum (~> 3.2)
+    yum-epel (>= 0.0.0)
