@@ -25,6 +25,12 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "rabbitmq::mgmt_console"
         chef.add_recipe "rabbitmq::policy_management"
         chef.add_recipe "rabbitmq::user_management"
+
+        chef.json = {
+          "hosts_file" => {
+            "custom_entries" => Hash[*nodes.map { |v| v.values.reverse }.flatten]
+          }
+        }
       end
     end
   end
