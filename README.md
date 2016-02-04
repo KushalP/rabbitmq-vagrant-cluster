@@ -23,3 +23,18 @@ When provisioning nodes, the changes to `/etc/hosts` aren't picked up
 immediately. This causes issues with RabbitMQ as it's unable to find
 the nodes we're telling it. To get around this, we're first
 provisioning RabbitMQ and then setting it up as a cluster.
+
+### Administering cluster
+
+You have two options to administer the cluster.
+
+#### Using the admin UI
+
+Once the cluster has been provisioned, you can login to the admin UI
+at http://10.125.0.11:15672/ using `admin` as the username and
+password.
+
+#### Over SSH
+
+You can SSH to any of the nodes in the cluster using `vagrant ssh
+$NODE` where `$NODE` is one of `node1`, `node2` or `node3`.
