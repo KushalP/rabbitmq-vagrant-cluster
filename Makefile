@@ -16,5 +16,5 @@ cluster:
 	RABBITMQ_CLUSTER=true vagrant provision
 
 clean:
-	@rm -rf cookbooks
+	@rm -r cookbooks
 	vagrant destroy
