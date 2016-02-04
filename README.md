@@ -15,7 +15,7 @@ You will need the following software installed:
 ## Building the cluster
 
 To build the cluster, a `Makefile` has been provided that takes care
-of everything for you.
+of everything for you. To run the tasks in the `Makefile`, run `make`.
 
 ### Extra provisioning step
 
