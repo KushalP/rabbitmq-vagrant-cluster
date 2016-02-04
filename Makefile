@@ -1,6 +1,6 @@
-.PHONY: deps berkshelf up
+.PHONY: berkshelf vagrant cluster clean
 
-all: deps berkshelf up
+all: deps berkshelf up cluster
 
 deps:
 	bundle
@@ -11,3 +11,10 @@ berkshelf:
 
 up:
 	vagrant up
+
+cluster:
+	RABBITMQ_CLUSTER=true vagrant provision
+
+clean:
+	@rm -rf cookbooks
+	vagrant destroy
