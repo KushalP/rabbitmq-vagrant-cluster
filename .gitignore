@@ -1,1 +1,4 @@
 /.vagrant
+
+# Where berkshelf places cookbooks
+cookbooks/
