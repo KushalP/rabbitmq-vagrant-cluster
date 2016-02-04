@@ -1,4 +1,4 @@
-# rabbitmq-vagrant
+# rabbitmq-vagrant-cluster
 
 This repo creates a three node vagrant cluster using the public Chef
 RabbitMQ cookbook.
