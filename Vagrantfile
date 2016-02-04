@@ -27,6 +27,34 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "rabbitmq::user_management"
 
         chef.json = {
+          "rabbitmq" => {
+            "erlang_cookie" => "hutch_cookie",
+            "enabled_users" => [
+              {
+                "name" => "admin",
+                "password" => "admin",
+                "rights" => [
+                  {
+                    "vhost" => "/",
+                    "conf" => ".*",
+                    "write" => ".*",
+                    "read" => ".*"
+                  }
+                ],
+                "tag" => "administrator"
+              }
+            ],
+            "policies" => {
+              "ha-all" => {
+                "pattern" => "^(?!amq\\.).*",
+                "params" => {
+                  "ha-mode" => "all",
+                  "ha-sync-mode" => "automatic"
+                },
+                "priority" => 0
+              }
+            },
+          },
           "hosts_file" => {
             "custom_entries" => Hash[*nodes.map { |v| v.values.reverse }.flatten]
           }
