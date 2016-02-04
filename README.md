@@ -16,3 +16,10 @@ You will need the following software installed:
 
 To build the cluster, a `Makefile` has been provided that takes care
 of everything for you.
+
+### Extra provisioning step
+
+When provisioning nodes, the changes to `/etc/hosts` aren't picked up
+immediately. This causes issues with RabbitMQ as it's unable to find
+the nodes we're telling it. To get around this, we're first
+provisioning RabbitMQ and then setting it up as a cluster.

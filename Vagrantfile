@@ -26,9 +26,27 @@ Vagrant.configure("2") do |config|
         chef.add_recipe "rabbitmq::policy_management"
         chef.add_recipe "rabbitmq::user_management"
 
+        if node[:hostname] == "node1"
+          auto_clustering = true
+          cluster_nodes = (nodes - [node]).map { |n| n[:hostname] }
+        else
+          auto_clustering = false
+          cluster_nodes = ["node1"]
+        end
+
         chef.json = {
           "rabbitmq" => {
             "erlang_cookie" => "hutch_cookie",
+            "cluster" => ENV["RABBITMQ_CLUSTER"] || false,
+            "cluster_disk_nodes" => nodes.map { |n| n[:hostname] }.map { |n| "rabbit@#{n}" },
+            "clustering" => {
+              "cluster_name" => "hutch_cluster",
+              "cluster_nodes" => cluster_nodes.map { |n|
+                { "name" => "rabbit@#{n}", "type" => "disc" }
+              },
+              "cluster_node_type" => "ram",
+              "use_auto_clustering" => auto_clustering,
+            },
             "enabled_users" => [
               {
                 "name" => "admin",
