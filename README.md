@@ -21,8 +21,9 @@ of everything for you. To run the tasks in the `Makefile`, run `make`.
 
 When provisioning nodes, the changes to `/etc/hosts` aren't picked up
 immediately. This causes issues with RabbitMQ as it's unable to find
-the nodes we're telling it. To get around this, we're first
-provisioning RabbitMQ and then setting it up as a cluster.
+the nodes we're telling it to create a cluster with. To get around
+this, we're first provisioning RabbitMQ and then setting it up as a
+cluster.
 
 ### Administering cluster
 
