@@ -7,7 +7,7 @@ RabbitMQ cookbook.
 
 You will need the following software installed:
 
- - [vagrant](https://www.vagrantup.com/)
+ - [Vagrant](https://www.vagrantup.com/)
  - [Ruby](https://www.ruby-lang.org/) and [RubyGems](https://rubygems.org/)
  - [Bundler](http://bundler.io/)
  - [make](https://www.gnu.org/software/make/)
